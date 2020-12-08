@@ -116,7 +116,6 @@ select{
     color: #42515f;
     opacity: 1;
     background: transparent;
-    border: none;
     font-weight: 400;
     min-width: 140px;
     padding: 7px 7px;
@@ -128,7 +127,6 @@ select{
     margin-right: 30px;
 }
 .cancelButton{
-    text-decoration: none;
     text-align: center;
 }
 @media only screen and (max-width: 960px){
