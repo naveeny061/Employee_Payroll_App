@@ -1,4 +1,4 @@
-class EmployeePayrollData {
+    class EmployeePayrollData {
     get id() { 
         return this._id; 
     }
@@ -10,7 +10,7 @@ class EmployeePayrollData {
         return this._name;
     }
     set name(name) {
-        let nameRegex=RegExp('^[A-Z]{1}[a-zA-Z]{2,}$');
+        let nameRegex=RegExp('^[A-Z]{1}[a-zA-Z]{2,}[ ][A-Z]{1}[a-zA-Z]{2,}$');
         if(nameRegex.test(name))
             this._name=name;
         else throw ' Name is Incorrect ';
@@ -55,11 +55,9 @@ class EmployeePayrollData {
         return this._startDate;
     }
     set startDate(startDate) {
-        if(startDate.getMonth() <= (new Date()).getMonth()  && startDate.getDay() <= (new Date()).getDay() && startDate.getFullYear() <= (new Date()).getFullYear())
-            this._startDate = startDate;
-        else{ 
-            throw "Invalid Start date ";
-        }
+        let now = new Date();
+        if(startDate > now ) throw 'Start Date is a Future Date';
+        this._startDate = startDate;
     }
 
     toString() {
