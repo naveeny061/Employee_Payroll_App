@@ -65,7 +65,7 @@
         const empDate = !this.startDate ? "undefined" : this.startDate.toLocalDateString("en-US", options);
         return "id = "+this.id +", name=" + this.name + ", gender=" + this.gender + 
                 ", profilePic=" + this.profilePic + ", department=" + this.department +
-                ", salary=" + this.salary + ", startDate=" + empDate + ", notes=" + this._notes;
+                ", salary=" + this.salary + ", startDate=" + empDate + ", notes=" + this.notes;
     }
 }
 
