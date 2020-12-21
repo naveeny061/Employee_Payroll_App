@@ -3,6 +3,7 @@ window.addEventListener('DOMContentLoaded',(event) =>{
     empPayrollList = getEmployeePayrollDataFromStorage();
     document.querySelector(".emp-count").textContent = empPayrollList.length;
     createInnerHtml();
+    localStorage.removeItem('editEmp');
 });
 const getEmployeePayrollDataFromStorage = () =>{
     return localStorage.getItem('EmployeePayrollList') ? JSON.parse(localStorage.getItem('EmployeePayrollList')) : [];
@@ -45,3 +46,9 @@ const remove = (node) => {
     document.querySelector(".emp-count").textContent = empPayrollList.length;
     createInnerHtml();
 }
+const update = (node) => {
+    let empPayrollData = empPayrollList.find(empData => empData._id == node._id);
+    if(!empPayrollData) return;
+    localStorage.setItem("editEmp", JSON.stringify(empPayrollData));
+    window.location.replace(site_properties.add_emp_payroll_page);
+  }
